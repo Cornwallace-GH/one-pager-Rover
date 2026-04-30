@@ -51,10 +51,11 @@ a{text-decoration:none;}
 #hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--black);text-align:center;padding:120px 5% 80px;}
 .hero-bg{position:absolute;inset:-8%;background-size:cover;background-position:center 55%;background-repeat:no-repeat;animation:kenBurns 22s ease-in-out infinite;z-index:0;}
 #hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,10,10,0.72) 0%,rgba(10,10,10,0.52) 60%,rgba(10,10,10,0.78) 100%);z-index:1;}
-.hero-content{position:relative;z-index:2;max-width:760px;}
-#hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,9vw,96px);letter-spacing:2px;color:var(--white);line-height:1;margin-bottom:20px;}
+.hero-content{position:relative;z-index:2;max-width:860px;}
+#hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,9vw,96px);letter-spacing:2px;color:var(--white);line-height:1;margin-bottom:24px;}
 #hero h1 em{display:block;color:var(--gold);font-style:normal;}
-.hero-sub{font-size:clamp(15px,2vw,18px);color:var(--muted);font-weight:300;margin-bottom:36px;line-height:1.6;}
+/* TASK 2 — match svc-title font style/size */
+.hero-sub{font-family:'Bebas Neue',sans-serif;font-size:clamp(22px,3.5vw,36px);letter-spacing:1.5px;color:var(--white);line-height:1.3;margin-bottom:40px;}
 .hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
 .btn-gold{background:var(--gold);color:var(--black);font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:16px 40px;border-radius:4px;display:inline-block;transition:background 0.2s;}
 .btn-gold:hover{background:var(--gold-light);}
@@ -67,16 +68,32 @@ a{text-decoration:none;}
 .sec--surface{background:var(--surface);}
 .sec-head{max-width:1280px;margin:0 auto 48px;}
 .section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,5vw,56px);letter-spacing:1.5px;line-height:1.05;margin-bottom:12px;}
-.section-sub{font-size:15px;color:var(--ink-3);max-width:500px;line-height:1.8;font-weight:300;margin-bottom:0;}
+.section-sub{font-size:15px;color:var(--ink-3);max-width:500px;line-height:1.8;font-weight:300;}
 
-/* VEHICLE SELECTOR */
-.vehicle-select{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:52px;}
-.vehicle-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-3);font-weight:500;margin-right:4px;}
-.vehicle-btn{background:transparent;color:var(--ink);border:1px solid var(--divider);padding:11px 28px;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:13px;letter-spacing:0.5px;cursor:pointer;transition:all 0.2s;}
-.vehicle-btn:hover{border-color:var(--gold);color:var(--gold);}
-.vehicle-btn.active{background:var(--black);border-color:var(--black);color:var(--white);font-weight:500;}
+/* SERVICE AREA */
+.sa-inner{display:grid;grid-template-columns:1fr 440px;gap:72px;align-items:center;max-width:1280px;margin:0 auto;}
+.city-chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 16px;}
+.city-chip{font-size:11px;font-weight:500;letter-spacing:0.8px;text-transform:uppercase;padding:5px 12px;border-radius:20px;border:1px solid var(--border);color:rgba(245,244,240,0.55);}
+.city-chip--home{background:rgba(201,168,76,0.12);border-color:rgba(201,168,76,0.4);color:var(--gold);}
+.sa-note{font-size:12px;color:rgba(245,244,240,0.35);font-style:italic;font-weight:300;}
+.sa-map-wrap{display:flex;justify-content:center;align-items:center;}
+.sa-map{position:relative;width:440px;height:440px;flex-shrink:0;}
+.map-ring{position:absolute;border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);}
+.map-ring--outer{width:100%;height:100%;border:1px dashed rgba(201,168,76,0.25);background:radial-gradient(circle,rgba(201,168,76,0.04) 0%,transparent 70%);}
+.map-ring--mid{width:60%;height:60%;border:1px solid rgba(201,168,76,0.12);}
+.map-cross{position:absolute;top:50%;left:50%;background:rgba(201,168,76,0.08);}
+.map-cross--h{width:100%;height:1px;transform:translate(-50%,-50%);}
+.map-cross--v{width:1px;height:100%;transform:translate(-50%,-50%);}
+@keyframes mapPulse{0%{transform:scale(1);opacity:0.8;}100%{transform:scale(2.2);opacity:0;}}
+.map-home{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:6px;z-index:3;}
+.map-pulse{position:absolute;width:40px;height:40px;border-radius:50%;background:rgba(201,168,76,0.15);border:1px solid rgba(201,168,76,0.3);animation:mapPulse 2.4s ease-out infinite;}
+.map-dot{width:12px;height:12px;border-radius:50%;background:var(--gold);border:2px solid var(--black);position:relative;z-index:2;}
+.map-label{font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:1.5px;color:var(--gold);margin-top:6px;white-space:nowrap;}
+.map-city{position:absolute;transform:translate(-50%,-50%);font-size:10px;font-weight:500;letter-spacing:0.8px;text-transform:uppercase;color:rgba(245,244,240,0.5);white-space:nowrap;display:flex;align-items:center;gap:5px;z-index:2;}
+.map-city::before{content:'';width:4px;height:4px;border-radius:50%;background:rgba(201,168,76,0.5);flex-shrink:0;}
+.map-radius-label{position:absolute;bottom:10px;right:14px;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(201,168,76,0.45);font-weight:500;}
 
-/* SERVICE CARDS */
+/* SERVICE CARDS — simplified (no tiers) */
 .service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1280px;margin:0 auto;}
 .svc-card{position:relative;border:1px solid var(--divider);border-radius:12px;padding:36px 32px;background:#fff;display:flex;flex-direction:column;transition:transform 0.2s,box-shadow 0.2s,border-color 0.2s;}
 .svc-card:hover{transform:translateY(-4px);border-color:var(--gold);box-shadow:0 12px 32px rgba(10,10,10,0.06);}
@@ -85,31 +102,20 @@ a{text-decoration:none;}
 .card-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--black);padding:4px 14px;border-radius:20px;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;white-space:nowrap;}
 .svc-title{font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:1px;margin-bottom:12px;line-height:1;color:var(--ink);}
 .svc-card.popular .svc-title{color:var(--white);}
-.svc-desc{font-size:14px;line-height:1.6;color:var(--ink-3);margin-bottom:22px;min-height:72px;}
+.svc-desc{font-size:14px;line-height:1.6;color:var(--ink-3);margin-bottom:28px;flex:1;}
 .svc-card.popular .svc-desc{color:var(--muted);}
-.tier-row{display:flex;gap:8px;margin-bottom:22px;}
-.tier-btn{flex:1;padding:9px 6px;background:transparent;border:1px solid var(--divider);border-radius:6px;font-family:'DM Sans',sans-serif;font-size:11.5px;font-weight:500;letter-spacing:1.2px;text-transform:uppercase;color:var(--ink);cursor:pointer;transition:all 0.2s;}
-.tier-btn:hover{border-color:var(--gold);color:var(--gold);}
-.tier-btn.active{background:var(--black);border-color:var(--black);color:var(--white);}
-.svc-card.popular .tier-btn{color:var(--muted);border-color:rgba(201,168,76,0.3);}
-.svc-card.popular .tier-btn.active{background:var(--gold);border-color:var(--gold);color:var(--black);}
-.price-line{display:flex;align-items:baseline;gap:6px;margin-bottom:6px;}
-.price-amt{font-family:'Bebas Neue',sans-serif;font-size:48px;letter-spacing:1px;color:var(--ink);line-height:1;}
-.svc-card.popular .price-amt{color:var(--gold);}
-.price-unit{font-size:14px;color:var(--ink-3);}
-.svc-card.popular .price-unit{color:var(--muted);}
-.price-note{font-size:12px;color:var(--ink-3);margin-bottom:22px;min-height:18px;}
-.svc-card.popular .price-note{color:var(--muted);}
-.includes-label{font-size:11px;letter-spacing:1.8px;text-transform:uppercase;color:var(--ink);font-weight:600;padding-bottom:10px;border-bottom:1px solid var(--divider);margin-bottom:14px;}
-.svc-card.popular .includes-label{color:var(--gold);border-color:rgba(201,168,76,0.2);}
-.includes-list{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:28px;flex:1;}
-.includes-list li{position:relative;padding-left:22px;font-size:13.5px;line-height:1.45;color:var(--ink);}
-.includes-list li::before{content:"✓";position:absolute;left:0;color:var(--gold);font-weight:700;}
-.svc-card.popular .includes-list li{color:rgba(245,244,240,0.75);}
-.svc-cta{display:block;width:100%;text-align:center;padding:14px;border-radius:6px;font-size:13px;font-weight:500;letter-spacing:0.8px;text-transform:uppercase;transition:all 0.2s;margin-top:auto;background:var(--black);color:var(--white);border:1px solid var(--black);}
+.price-from{font-family:'Bebas Neue',sans-serif;font-size:44px;letter-spacing:1px;color:var(--ink);line-height:1;margin-bottom:28px;}
+.svc-card.popular .price-from{color:var(--gold);}
+.svc-cta{display:block;width:100%;text-align:center;padding:14px;border-radius:6px;font-size:13px;font-weight:500;letter-spacing:0.8px;text-transform:uppercase;transition:all 0.2s;background:var(--black);color:var(--white);border:1px solid var(--black);}
 .svc-cta:hover{background:var(--gold);border-color:var(--gold);color:var(--black);}
 .svc-card.popular .svc-cta{background:var(--gold);border-color:var(--gold);color:var(--black);}
 .svc-card.popular .svc-cta:hover{background:var(--gold-light);}
+
+/* CERAMIC CALLOUT */
+.ceramic-callout{background:rgba(201,168,76,0.07);border:1px solid rgba(201,168,76,0.25);border-radius:12px;padding:32px 40px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;max-width:1280px;margin:40px auto 0;}
+.ceramic-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:500;display:block;margin-bottom:8px;}
+.ceramic-title{font-family:'Bebas Neue',sans-serif;font-size:36px;letter-spacing:1px;color:var(--ink);line-height:1;margin-bottom:8px;}
+.ceramic-desc{font-size:14px;color:var(--ink-3);line-height:1.6;font-weight:300;max-width:520px;}
 
 /* ADD-ONS */
 .addon-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;max-width:1280px;margin:0 auto;}
@@ -149,29 +155,6 @@ a{text-decoration:none;}
 .btn-google:hover{border-color:var(--gold);}
 .reviews-sync{display:block;font-size:11px;color:rgba(245,244,240,0.3);margin-top:12px;letter-spacing:0.5px;}
 
-/* SERVICE AREA */
-.sa-inner{display:grid;grid-template-columns:1fr 440px;gap:72px;align-items:center;max-width:1280px;margin:0 auto;}
-.city-chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 16px;}
-.city-chip{font-size:11px;font-weight:500;letter-spacing:0.8px;text-transform:uppercase;padding:5px 12px;border-radius:20px;border:1px solid var(--border);color:rgba(245,244,240,0.55);}
-.city-chip--home{background:rgba(201,168,76,0.12);border-color:rgba(201,168,76,0.4);color:var(--gold);}
-.sa-note{font-size:12px;color:rgba(245,244,240,0.35);font-style:italic;font-weight:300;}
-.sa-map-wrap{display:flex;justify-content:center;align-items:center;}
-.sa-map{position:relative;width:440px;height:440px;flex-shrink:0;}
-.map-ring{position:absolute;border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);}
-.map-ring--outer{width:100%;height:100%;border:1px dashed rgba(201,168,76,0.25);background:radial-gradient(circle,rgba(201,168,76,0.04) 0%,transparent 70%);}
-.map-ring--mid{width:60%;height:60%;border:1px solid rgba(201,168,76,0.12);}
-.map-cross{position:absolute;top:50%;left:50%;background:rgba(201,168,76,0.08);}
-.map-cross--h{width:100%;height:1px;transform:translate(-50%,-50%);}
-.map-cross--v{width:1px;height:100%;transform:translate(-50%,-50%);}
-@keyframes mapPulse{0%{transform:scale(1);opacity:0.8;}100%{transform:scale(2.2);opacity:0;}}
-.map-home{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:6px;z-index:3;}
-.map-pulse{position:absolute;width:40px;height:40px;border-radius:50%;background:rgba(201,168,76,0.15);border:1px solid rgba(201,168,76,0.3);animation:mapPulse 2.4s ease-out infinite;}
-.map-dot{width:12px;height:12px;border-radius:50%;background:var(--gold);border:2px solid var(--black);position:relative;z-index:2;}
-.map-label{font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:1.5px;color:var(--gold);margin-top:6px;white-space:nowrap;}
-.map-city{position:absolute;transform:translate(-50%,-50%);font-size:10px;font-weight:500;letter-spacing:0.8px;text-transform:uppercase;color:rgba(245,244,240,0.5);white-space:nowrap;display:flex;align-items:center;gap:5px;z-index:2;}
-.map-city::before{content:'';width:4px;height:4px;border-radius:50%;background:rgba(201,168,76,0.5);flex-shrink:0;}
-.map-radius-label{position:absolute;bottom:10px;right:14px;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(201,168,76,0.45);font-weight:500;}
-
 /* HOW IT WORKS */
 .steps{display:grid;grid-template-columns:repeat(4,1fr);margin-top:48px;max-width:1280px;margin-left:auto;margin-right:auto;}
 .step{padding:32px 28px;border-right:1px solid var(--border);}
@@ -180,7 +163,7 @@ a{text-decoration:none;}
 .step h4{font-size:14px;font-weight:500;color:var(--white);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;}
 .step p{font-size:13px;color:var(--muted);line-height:1.7;font-weight:300;}
 
-/* CONTACT HEADER */
+/* CONTACT */
 .contact-header{background:var(--black);padding:64px 5% 56px;}
 .contact-header h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,6vw,72px);letter-spacing:2px;color:var(--white);line-height:1;margin-bottom:16px;}
 .contact-header p{font-size:15px;color:var(--muted);font-weight:300;line-height:1.8;max-width:480px;}
@@ -191,8 +174,6 @@ a{text-decoration:none;}
 .contact-meta-item{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--ink-3);text-decoration:none;transition:color 0.2s;}
 .contact-meta-item svg{color:var(--gold);flex-shrink:0;}
 .contact-meta-item:hover{color:var(--gold);}
-
-/* FORM */
 .fg{margin-bottom:14px;}
 .fg label{display:block;font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold);margin-bottom:6px;font-weight:500;}
 .fg input,.fg select,.fg textarea{width:100%;padding:11px 14px;background:#fff;border:1px solid var(--divider);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--ink);outline:none;transition:border-color 0.2s;resize:none;}
@@ -237,16 +218,20 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:48px 5
   .service-grid{grid-template-columns:1fr;max-width:480px;margin:0 auto;}
   .addon-grid{grid-template-columns:repeat(2,1fr);}
   .contact-grid{grid-template-columns:1fr;gap:40px;}
-  .vehicle-select{flex-direction:column;align-items:center;gap:0;max-width:340px;margin-left:auto;margin-right:auto;margin-bottom:40px;}
-  .vehicle-label{margin-bottom:12px;color:var(--gold);font-size:9px;letter-spacing:3px;border-bottom:1px solid var(--divider);padding-bottom:8px;width:100%;text-align:center;margin-right:0;}
-  .vehicle-btn{width:100%;padding:15px 20px;text-align:center;border-radius:0;border-bottom:none;}
-  .vehicle-btn:first-of-type{border-radius:8px 8px 0 0;}
-  .vehicle-btn:last-of-type{border-bottom:1px solid var(--divider);border-radius:0 0 8px 8px;}
   .fg-row{grid-template-columns:1fr;}
   .cta-band{justify-content:center;text-align:center;}
+  .ceramic-callout{flex-direction:column;align-items:flex-start;padding:28px 24px;}
 }
+/* TASK 5 — mobile add-on grid: 2 cols, compact cards */
 @media(max-width:600px){
-  .addon-grid{grid-template-columns:1fr;}
+  .addon-grid{grid-template-columns:repeat(2,1fr);gap:12px;}
+  .addon-card{padding:18px 14px;}
+  .addon-icon{width:32px;height:32px;margin-bottom:10px;}
+  .addon-name{font-size:18px;}
+  .addon-desc{font-size:12px;margin-bottom:10px;}
+  .addon-price{font-size:22px;}
+  .addon-note{font-size:10px;margin-bottom:10px;}
+  .addon-btn{font-size:11px;padding:9px;}
   .reviews-grid-full{grid-template-columns:1fr;}
   .steps{grid-template-columns:1fr;}
   .step{border-right:none;border-bottom:1px solid var(--border);}
@@ -261,17 +246,15 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:48px 5
 <nav id="nav">
   <a href="#hero" class="nav-logo">ROVER <span>DETAIL</span></a>
   <ul class="nav-links">
+    <li><a href="#service-area">Service Area</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#addons">Add-Ons</a></li>
     <li><a href="#reviews">Reviews</a></li>
-    <li><a href="#service-area">Service Area</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <div class="nav-right">
     <a href="https://book.squareup.com/appointments/6t3dr4u3tg3109/location/LSMK9Z81Z1PDK/availability" target="_blank" class="nav-book">Book Now</a>
-    <button class="hamburger" id="hamburger" onclick="openMenu()" aria-label="Open menu">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="hamburger" id="hamburger" onclick="openMenu()" aria-label="Open menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
@@ -284,10 +267,10 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:48px 5
     </button>
   </div>
   <nav class="mob-links">
+    <a href="#service-area" onclick="closeMenu()">Service Area</a>
     <a href="#services" onclick="closeMenu()">Services</a>
     <a href="#addons" onclick="closeMenu()">Add-Ons</a>
     <a href="#reviews" onclick="closeMenu()">Reviews</a>
-    <a href="#service-area" onclick="closeMenu()">Service Area</a>
     <a href="#contact" onclick="closeMenu()">Contact</a>
   </nav>
   <a href="https://book.squareup.com/appointments/6t3dr4u3tg3109/location/LSMK9Z81Z1PDK/availability" target="_blank" class="mob-cta" onclick="closeMenu()">Book Now</a>
@@ -307,251 +290,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:48px 5
   </div>
 </section>
 
-<!-- SERVICES -->
-<section id="services" class="sec">
-  <div class="sec-head">
-    <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">Our Services</span></div>
-    <h2 class="section-title">Expert Detail.<br>At Your Door.</h2>
-    <p class="section-sub">Three core services, each with tiered options. Select your vehicle size and tier to see pricing.</p>
-  </div>
-
-  <div class="vehicle-select">
-    <span class="vehicle-label">Vehicle Size:</span>
-    <button class="vehicle-btn active" onclick="setSize(0)">Sedan / Coupe</button>
-    <button class="vehicle-btn" onclick="setSize(1)">SUV / Crossover</button>
-    <button class="vehicle-btn" onclick="setSize(2)">Truck / Large SUV</button>
-  </div>
-
-  <div class="service-grid">
-
-    <!-- INTERIOR -->
-    <div class="svc-card" data-service="interior">
-      <h3 class="svc-title">Interior Detail</h3>
-      <p class="svc-desc">A deep clean of every cabin surface — vacuumed carpets, wiped panels, steam-cleaned upholstery, and odor elimination.</p>
-      <div class="tier-row">
-        <button class="tier-btn active" data-tier="silver" onclick="setTier('interior','silver')">Silver</button>
-        <button class="tier-btn" data-tier="gold" onclick="setTier('interior','gold')">Gold</button>
-        <button class="tier-btn" data-tier="platinum" onclick="setTier('interior','platinum')">Platinum</button>
-      </div>
-      <div class="price-line">
-        <span class="price-amt" data-price="interior">$150</span>
-        <span class="price-unit">starting</span>
-      </div>
-      <div class="price-note" data-note="interior">Silver · sedan / coupe</div>
-      <div class="includes-label">What's Included</div>
-      <ul class="includes-list" data-includes="interior">
-        <li>Full vacuum — seats, carpets, floor mats, crevices</li>
-        <li>Dashboard, console, and door panels wiped down</li>
-        <li>Vents and tight spaces cleaned</li>
-        <li>Interior glass cleaned streak-free</li>
-        <li>Air freshener applied</li>
-      </ul>
-      <a href="https://book.squareup.com/appointments/6t3dr4u3tg3109/location/LSMK9Z81Z1PDK/availability" target="_blank" class="svc-cta">Book This Service</a>
-    </div>
-
-    <!-- FULL DETAIL -->
-    <div class="svc-card popular" data-service="full">
-      <span class="card-badge">Most Popular</span>
-      <h3 class="svc-title">Full Detail</h3>
-      <p class="svc-desc">The complete reset — every surface inside, every panel outside. Best value vs. booking interior and exterior separately.</p>
-      <div class="tier-row">
-        <button class="tier-btn active" data-tier="silver" onclick="setTier('full','silver')">Silver</button>
-        <button class="tier-btn" data-tier="gold" onclick="setTier('full','gold')">Gold</button>
-        <button class="tier-btn" data-tier="platinum" onclick="setTier('full','platinum')">Platinum</button>
-      </div>
-      <div class="price-line">
-        <span class="price-amt" data-price="full">$250</span>
-        <span class="price-unit">starting</span>
-      </div>
-      <div class="price-note" data-note="full">Silver · sedan / coupe · saves vs. separate bookings</div>
-      <div class="includes-label">What's Included</div>
-      <ul class="includes-list" data-includes="full">
-        <li>Full vacuum — seats, carpets, floor mats, crevices</li>
-        <li>Dashboard, console, door panels wiped down</li>
-        <li>Interior glass streak-free + air freshener</li>
-        <li>Safe pre-rinse and two-bucket hand wash</li>
-        <li>Wheel face and tire cleaned + tire dressing</li>
-        <li>Exterior glass streak-free + quick-detail gloss</li>
-      </ul>
-      <a href="https://book.squareup.com/appointments/6t3dr4u3tg3109/location/LSMK9Z81Z1PDK/availability" target="_blank" class="svc-cta">Book This Service</a>
-    </div>
-
-    <!-- EXTERIOR -->
-    <div class="svc-card" data-service="exterior">
-      <h3 class="svc-title">Exterior Detail</h3>
-      <p class="svc-desc">A proper hand wash with attention a machine can't match — safe technique, clay bar decontamination, and a lasting hydrophobic finish.</p>
-      <div class="tier-row">
-        <button class="tier-btn active" data-tier="silver" onclick="setTier('exterior','silver')">Silver</button>
-        <button class="tier-btn" data-tier="gold" onclick="setTier('exterior','gold')">Gold</button>
-        <button class="tier-btn" data-tier="platinum" onclick="setTier('exterior','platinum')">Platinum</button>
-      </div>
-      <div class="price-line">
-        <span class="price-amt" data-price="exterior">$175</span>
-        <span class="price-unit">starting</span>
-      </div>
-      <div class="price-note" data-note="exterior">Silver · sedan / coupe</div>
-      <div class="includes-label">What's Included</div>
-      <ul class="includes-list" data-includes="exterior">
-        <li>Safe pre-rinse and two-bucket hand wash</li>
-        <li>Wheel face and tire cleaned</li>
-        <li>Tire dressing applied</li>
-        <li>Exterior glass cleaned streak-free</li>
-        <li>Quick-detail spray for surface gloss</li>
-      </ul>
-      <a href="https://book.squareup.com/appointments/6t3dr4u3tg3109/location/LSMK9Z81Z1PDK/availability" target="_blank" class="svc-cta">Book This Service</a>
-    </div>
-
-  </div>
-</section>
-
-<!-- ADD-ONS -->
-<section id="addons" class="sec sec--surface">
-  <div class="sec-head">
-    <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">Add-Ons</span></div>
-    <h2 class="section-title">Elevate Your Detail.</h2>
-    <p class="section-sub">Add any of the following to your service at booking.</p>
-  </div>
-  <div class="addon-grid">
-
-    <div class="addon-card">
-      <div class="addon-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 6v6l4 2"/><circle cx="19" cy="5" r="3"/></svg></div>
-      <div class="addon-name">Engine Bay Detail</div>
-      <p class="addon-desc">Thorough degreasing and cleaning of the engine compartment — safe for all components.</p>
-      <div class="addon-price">From $75</div>
-      <div class="addon-note">Pricing varies by vehicle size</div>
-      <a href="https://book.squareup.com/appointments/6t3dr4u3tg3109/location/LSMK9Z81Z1PDK/availability" target="_blank" class="addon-btn">Add to Booking</a>
-    </div>
-
-    <div class="addon-card">
-      <div class="addon-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div>
-      <div class="addon-name">Odor Elimination</div>
-      <p class="addon-desc">Enzyme or ozone treatment targeting persistent odors at the source — not just masking them.</p>
-      <div class="addon-price">From $60</div>
-      <div class="addon-note">Severity may affect final price</div>
-      <a href="https://book.squareup.com/appointments/6t3dr4u3tg3109/location/LSMK9Z81Z1PDK/availability" target="_blank" class="addon-btn">Add to Booking</a>
-    </div>
-
-    <div class="addon-card">
-      <div class="addon-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-      <div class="addon-name">Pet Hair Removal</div>
-      <p class="addon-desc">Thorough removal of embedded pet hair from upholstery and carpets using professional tools.</p>
-      <div class="addon-price">From $50</div>
-      <div class="addon-note">Pricing varies by severity</div>
-      <a href="https://book.squareup.com/appointments/6t3dr4u3tg3109/location/LSMK9Z81Z1PDK/availability" target="_blank" class="addon-btn">Add to Booking</a>
-    </div>
-
-    <div class="addon-card">
-      <div class="addon-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-      <div class="addon-name">Clay Bar Treatment</div>
-      <p class="addon-desc">Standalone paint decontamination — removes bonded contaminants for a smooth, clean surface.</p>
-      <div class="addon-price">From $65</div>
-      <div class="addon-note">Pricing varies by vehicle size</div>
-      <a href="https://book.squareup.com/appointments/6t3dr4u3tg3109/location/LSMK9Z81Z1PDK/availability" target="_blank" class="addon-btn">Add to Booking</a>
-    </div>
-
-    <div class="addon-card">
-      <div class="addon-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-      <div class="addon-name">Trim Restoration</div>
-      <p class="addon-desc">Restore faded exterior plastic trim to like-new condition with long-lasting protectant.</p>
-      <div class="addon-price">From $70</div>
-      <div class="addon-note">Flat rate for most vehicles</div>
-      <a href="https://book.squareup.com/appointments/6t3dr4u3tg3109/location/LSMK9Z81Z1PDK/availability" target="_blank" class="addon-btn">Add to Booking</a>
-    </div>
-
-    <div class="addon-card">
-      <div class="addon-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-      <div class="addon-name">Ceramic Spray Sealant</div>
-      <p class="addon-desc">A ceramic-infused spray sealant upgrade over standard wax — enhanced hydrophobic protection.</p>
-      <div class="addon-price">From $80</div>
-      <div class="addon-note">Pricing varies by vehicle size</div>
-      <a href="https://book.squareup.com/appointments/6t3dr4u3tg3109/location/LSMK9Z81Z1PDK/availability" target="_blank" class="addon-btn">Add to Booking</a>
-    </div>
-
-    <div class="addon-card">
-      <div class="addon-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="4.93" y1="4.93" x2="9.17" y2="9.17"/><line x1="14.83" y1="14.83" x2="19.07" y2="19.07"/><line x1="14.83" y1="9.17" x2="19.07" y2="4.93"/><line x1="4.93" y1="19.07" x2="9.17" y2="14.83"/></svg></div>
-      <div class="addon-name">Glass Ceramic Coating</div>
-      <p class="addon-desc">Long-lasting hydrophobic ceramic protection for all glass surfaces — improved visibility and easy cleaning.</p>
-      <div class="addon-price">From $150</div>
-      <div class="addon-note">Pricing varies by vehicle size</div>
-      <a href="https://book.squareup.com/appointments/6t3dr4u3tg3109/location/LSMK9Z81Z1PDK/availability" target="_blank" class="addon-btn">Add to Booking</a>
-    </div>
-
-  </div>
-</section>
-
-<!-- REVIEWS -->
-<section id="reviews" class="sec sec--dark">
-  <div class="reviews-header">
-    <div class="eyebrow" style="justify-content:center"><div class="eyebrow-line"></div><span class="eyebrow-text">Customer Reviews</span></div>
-    <div class="rating-summary">
-      <div class="rating-score">5.0</div>
-      <div class="rating-right">
-        <div class="rating-stars"><span class="star-lg">★</span><span class="star-lg">★</span><span class="star-lg">★</span><span class="star-lg">★</span><span class="star-lg">★</span></div>
-        <div class="rating-meta">Google Rating &nbsp;·&nbsp; Updated Weekly</div>
-      </div>
-    </div>
-    <h2 class="section-title" style="color:var(--white);text-align:center">What Our Clients Say.</h2>
-  </div>
-  <div class="reviews-grid-full">
-    <div class="rev-card">
-      <div class="rev-top">
-        <div class="rev-stars-row"><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm">★</span></div>
-        <div class="rev-source"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg><span>Google</span></div>
-      </div>
-      <blockquote class="rev-quote">"Brought my truck in for paint correction and I genuinely could not believe the results. Swirls and scratches I'd had for years were completely gone. Worth every penny."</blockquote>
-      <div class="rev-author"><div class="rev-avatar">JM</div><div><div class="rev-name">James M.</div><div class="rev-loc">North Atlanta, GA</div></div></div>
-    </div>
-    <div class="rev-card">
-      <div class="rev-top">
-        <div class="rev-stars-row"><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm">★</span></div>
-        <div class="rev-source"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg><span>Google</span></div>
-      </div>
-      <blockquote class="rev-quote">"The ceramic coating they put on my car has been incredible — water just beads right off and it still looks freshly waxed months later. Highly recommend."</blockquote>
-      <div class="rev-author"><div class="rev-avatar">SR</div><div><div class="rev-name">Sarah R.</div><div class="rev-loc">Alpharetta, GA</div></div></div>
-    </div>
-    <div class="rev-card">
-      <div class="rev-top">
-        <div class="rev-stars-row"><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm">★</span></div>
-        <div class="rev-source"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg><span>Google</span></div>
-      </div>
-      <blockquote class="rev-quote">"Best detailing experience I've had. They treated my car like it was their own and the interior came out spotless. Already booked my next appointment."</blockquote>
-      <div class="rev-author"><div class="rev-avatar">DK</div><div><div class="rev-name">David K.</div><div class="rev-loc">Cumming, GA</div></div></div>
-    </div>
-    <div class="rev-card">
-      <div class="rev-top">
-        <div class="rev-stars-row"><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm">★</span></div>
-        <div class="rev-source"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg><span>Google</span></div>
-      </div>
-      <blockquote class="rev-quote">"Showed up on time, professional, and the results were immaculate. My car hasn't looked this clean since I drove it off the lot. The full detail package is absolutely worth it."</blockquote>
-      <div class="rev-author"><div class="rev-avatar">MP</div><div><div class="rev-name">Marcus P.</div><div class="rev-loc">Johns Creek, GA</div></div></div>
-    </div>
-    <div class="rev-card">
-      <div class="rev-top">
-        <div class="rev-stars-row"><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm">★</span></div>
-        <div class="rev-source"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg><span>Google</span></div>
-      </div>
-      <blockquote class="rev-quote">"I've tried a few mobile detailers and Rover Detail is in a different league. The attention to detail on the exterior was insane — every inch. Already on a bi-weekly plan now."</blockquote>
-      <div class="rev-author"><div class="rev-avatar">TL</div><div><div class="rev-name">Tyler L.</div><div class="rev-loc">Roswell, GA</div></div></div>
-    </div>
-    <div class="rev-card">
-      <div class="rev-top">
-        <div class="rev-stars-row"><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm">★</span></div>
-        <div class="rev-source"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg><span>Google</span></div>
-      </div>
-      <blockquote class="rev-quote">"My leather seats look brand new. They got out stains I thought were permanent and the whole cabin smelled incredible when they were done."</blockquote>
-      <div class="rev-author"><div class="rev-avatar">AW</div><div><div class="rev-name">Ashley W.</div><div class="rev-loc">Milton, GA</div></div></div>
-    </div>
-  </div>
-  <div class="reviews-cta">
-    <a href="https://www.google.com/maps/search/Rover+Detail+North+Atlanta" target="_blank" class="btn-google">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-      Leave Us a Review on Google
-    </a>
-    <span class="reviews-sync">Reviews pulled from Google · Updated weekly</span>
-  </div>
-</section>
-
-<!-- SERVICE AREA -->
+<!-- TASK 1 — SERVICE AREA moved above services -->
 <section id="service-area" class="sec sec--dark">
   <div class="sa-inner">
     <div>
@@ -560,16 +299,10 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:48px 5
       <p class="section-sub" style="color:var(--muted)">We travel to you — home, office, or anywhere your vehicle is parked across North Atlanta.</p>
       <div class="city-chips">
         <span class="city-chip city-chip--home">Alpharetta</span>
-        <span class="city-chip">Milton</span>
-        <span class="city-chip">Roswell</span>
-        <span class="city-chip">Cumming</span>
-        <span class="city-chip">Canton</span>
-        <span class="city-chip">Woodstock</span>
-        <span class="city-chip">Kennesaw</span>
-        <span class="city-chip">Marietta</span>
-        <span class="city-chip">Gainesville</span>
-        <span class="city-chip">Big Canoe</span>
-        <span class="city-chip">Jasper</span>
+        <span class="city-chip">Milton</span><span class="city-chip">Roswell</span><span class="city-chip">Cumming</span>
+        <span class="city-chip">Canton</span><span class="city-chip">Woodstock</span><span class="city-chip">Kennesaw</span>
+        <span class="city-chip">Marietta</span><span class="city-chip">Gainesville</span>
+        <span class="city-chip">Big Canoe</span><span class="city-chip">Jasper</span>
       </div>
       <p class="sa-note">Don't see your city? Reach out — we may still be able to come to you.</p>
     </div>
@@ -579,11 +312,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:48px 5
         <div class="map-ring map-ring--mid"></div>
         <div class="map-cross map-cross--h"></div>
         <div class="map-cross map-cross--v"></div>
-        <div class="map-home">
-          <div class="map-pulse"></div>
-          <div class="map-dot"></div>
-          <div class="map-label">Alpharetta</div>
-        </div>
+        <div class="map-home"><div class="map-pulse"></div><div class="map-dot"></div><div class="map-label">Alpharetta</div></div>
         <div class="map-city" style="top:6%;left:28%">Big Canoe</div>
         <div class="map-city" style="top:6%;left:54%">Jasper</div>
         <div class="map-city" style="top:16%;left:72%">Gainesville</div>
@@ -597,6 +326,97 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:48px 5
         <div class="map-radius-label">~30 mi radius</div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- SERVICES — TASK 3: tiers removed, TASK 7: subtitle removed -->
+<section id="services" class="sec">
+  <div class="sec-head">
+    <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">Our Services</span></div>
+    <h2 class="section-title">Expert Detail.<br>At Your Door.</h2>
+  </div>
+
+  <div class="service-grid">
+
+    <div class="svc-card">
+      <h3 class="svc-title">Interior Detail</h3>
+      <p class="svc-desc">A deep clean of every cabin surface — vacuumed carpets, wiped panels, steam-cleaned upholstery, and odor elimination.</p>
+      <div class="price-from">From $150</div>
+      <a href="https://book.squareup.com/appointments/6t3dr4u3tg3109/location/LSMK9Z81Z1PDK/availability" target="_blank" class="svc-cta">Book This Service</a>
+    </div>
+
+    <div class="svc-card popular">
+      <span class="card-badge">Most Popular</span>
+      <h3 class="svc-title">Full Detail</h3>
+      <p class="svc-desc">The complete reset — every surface inside, every panel outside. Best value vs. booking interior and exterior separately.</p>
+      <div class="price-from">From $250</div>
+      <a href="https://book.squareup.com/appointments/6t3dr4u3tg3109/location/LSMK9Z81Z1PDK/availability" target="_blank" class="svc-cta">Book This Service</a>
+    </div>
+
+    <div class="svc-card">
+      <h3 class="svc-title">Exterior Detail</h3>
+      <p class="svc-desc">A proper hand wash with attention a machine can't match — safe technique, clay bar decontamination, and a lasting hydrophobic finish.</p>
+      <div class="price-from">From $175</div>
+      <a href="https://book.squareup.com/appointments/6t3dr4u3tg3109/location/LSMK9Z81Z1PDK/availability" target="_blank" class="svc-cta">Book This Service</a>
+    </div>
+
+  </div>
+
+  <!-- TASK 4 — Ceramic Coating callout -->
+  <div class="ceramic-callout">
+    <div>
+      <span class="ceramic-label">Paint &amp; Protection</span>
+      <div class="ceramic-title">Ceramic Coating</div>
+      <p class="ceramic-desc">Multi-year paint protection, UV defense, and deep gloss. Request an inquiry and we'll build a custom quote for your vehicle.</p>
+    </div>
+    <a href="./ceramic.html" class="btn-gold">Request a Quote &rarr;</a>
+  </div>
+
+</section>
+
+<!-- ADD-ONS — TASK 6: title changed -->
+<section id="addons" class="sec sec--surface">
+  <div class="sec-head">
+    <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">Add-Ons</span></div>
+    <h2 class="section-title">Add-Ons</h2>
+  </div>
+  <div class="addon-grid">
+
+    <div class="addon-card"><div class="addon-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 6v6l4 2"/><circle cx="19" cy="5" r="3"/></svg></div><div class="addon-name">Engine Bay Detail</div><p class="addon-desc">Thorough degreasing and cleaning of the engine compartment — safe for all components.</p><div class="addon-price">From $75</div><div class="addon-note">Pricing varies by vehicle size</div><a href="https://book.squareup.com/appointments/6t3dr4u3tg3109/location/LSMK9Z81Z1PDK/availability" target="_blank" class="addon-btn">Add to Booking</a></div>
+
+    <div class="addon-card"><div class="addon-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div><div class="addon-name">Odor Elimination</div><p class="addon-desc">Enzyme or ozone treatment targeting persistent odors at the source — not just masking them.</p><div class="addon-price">From $60</div><div class="addon-note">Severity may affect final price</div><a href="https://book.squareup.com/appointments/6t3dr4u3tg3109/location/LSMK9Z81Z1PDK/availability" target="_blank" class="addon-btn">Add to Booking</a></div>
+
+    <div class="addon-card"><div class="addon-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div><div class="addon-name">Pet Hair Removal</div><p class="addon-desc">Thorough removal of embedded pet hair from upholstery and carpets using professional tools.</p><div class="addon-price">From $50</div><div class="addon-note">Pricing varies by severity</div><a href="https://book.squareup.com/appointments/6t3dr4u3tg3109/location/LSMK9Z81Z1PDK/availability" target="_blank" class="addon-btn">Add to Booking</a></div>
+
+    <div class="addon-card"><div class="addon-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="addon-name">Clay Bar Treatment</div><p class="addon-desc">Standalone paint decontamination — removes bonded contaminants for a smooth, clean surface.</p><div class="addon-price">From $65</div><div class="addon-note">Pricing varies by vehicle size</div><a href="https://book.squareup.com/appointments/6t3dr4u3tg3109/location/LSMK9Z81Z1PDK/availability" target="_blank" class="addon-btn">Add to Booking</a></div>
+
+    <div class="addon-card"><div class="addon-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div><div class="addon-name">Trim Restoration</div><p class="addon-desc">Restore faded exterior plastic trim to like-new condition with long-lasting protectant.</p><div class="addon-price">From $70</div><div class="addon-note">Flat rate for most vehicles</div><a href="https://book.squareup.com/appointments/6t3dr4u3tg3109/location/LSMK9Z81Z1PDK/availability" target="_blank" class="addon-btn">Add to Booking</a></div>
+
+    <div class="addon-card"><div class="addon-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><div class="addon-name">Ceramic Spray Sealant</div><p class="addon-desc">Ceramic-infused spray sealant upgrade — enhanced hydrophobic protection over standard wax.</p><div class="addon-price">From $80</div><div class="addon-note">Pricing varies by vehicle size</div><a href="https://book.squareup.com/appointments/6t3dr4u3tg3109/location/LSMK9Z81Z1PDK/availability" target="_blank" class="addon-btn">Add to Booking</a></div>
+
+    <div class="addon-card"><div class="addon-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="4.93" y1="4.93" x2="9.17" y2="9.17"/><line x1="14.83" y1="14.83" x2="19.07" y2="19.07"/><line x1="14.83" y1="9.17" x2="19.07" y2="4.93"/><line x1="4.93" y1="19.07" x2="9.17" y2="14.83"/></svg></div><div class="addon-name">Glass Ceramic Coating</div><p class="addon-desc">Long-lasting hydrophobic ceramic protection for all glass surfaces — improved visibility and easy cleaning.</p><div class="addon-price">From $150</div><div class="addon-note">Pricing varies by vehicle size</div><a href="https://book.squareup.com/appointments/6t3dr4u3tg3109/location/LSMK9Z81Z1PDK/availability" target="_blank" class="addon-btn">Add to Booking</a></div>
+
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews" class="sec sec--dark">
+  <div class="reviews-header">
+    <div class="eyebrow" style="justify-content:center"><div class="eyebrow-line"></div><span class="eyebrow-text">Customer Reviews</span></div>
+    <div class="rating-summary"><div class="rating-score">5.0</div><div class="rating-right"><div class="rating-stars"><span class="star-lg">★</span><span class="star-lg">★</span><span class="star-lg">★</span><span class="star-lg">★</span><span class="star-lg">★</span></div><div class="rating-meta">Google Rating &nbsp;·&nbsp; Updated Weekly</div></div></div>
+    <h2 class="section-title" style="color:var(--white);text-align:center">What Our Clients Say.</h2>
+  </div>
+  <div class="reviews-grid-full">
+    <div class="rev-card"><div class="rev-top"><div class="rev-stars-row"><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm">★</span></div><div class="rev-source"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg><span>Google</span></div></div><blockquote class="rev-quote">"Brought my truck in for paint correction and I genuinely could not believe the results. Swirls and scratches I'd had for years were completely gone. Worth every penny."</blockquote><div class="rev-author"><div class="rev-avatar">JM</div><div><div class="rev-name">James M.</div><div class="rev-loc">North Atlanta, GA</div></div></div></div>
+    <div class="rev-card"><div class="rev-top"><div class="rev-stars-row"><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm">★</span></div><div class="rev-source"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg><span>Google</span></div></div><blockquote class="rev-quote">"The ceramic coating they put on my car has been incredible — water just beads right off and it still looks freshly waxed months later. Highly recommend."</blockquote><div class="rev-author"><div class="rev-avatar">SR</div><div><div class="rev-name">Sarah R.</div><div class="rev-loc">Alpharetta, GA</div></div></div></div>
+    <div class="rev-card"><div class="rev-top"><div class="rev-stars-row"><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm">★</span></div><div class="rev-source"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg><span>Google</span></div></div><blockquote class="rev-quote">"Best detailing experience I've had. They treated my car like it was their own and the interior came out spotless. Already booked my next appointment."</blockquote><div class="rev-author"><div class="rev-avatar">DK</div><div><div class="rev-name">David K.</div><div class="rev-loc">Cumming, GA</div></div></div></div>
+    <div class="rev-card"><div class="rev-top"><div class="rev-stars-row"><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm">★</span></div><div class="rev-source"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg><span>Google</span></div></div><blockquote class="rev-quote">"Showed up on time, professional, and the results were immaculate. My car hasn't looked this clean since I drove it off the lot. Full detail package is absolutely worth it."</blockquote><div class="rev-author"><div class="rev-avatar">MP</div><div><div class="rev-name">Marcus P.</div><div class="rev-loc">Canton, GA</div></div></div></div>
+    <div class="rev-card"><div class="rev-top"><div class="rev-stars-row"><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm">★</span></div><div class="rev-source"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg><span>Google</span></div></div><blockquote class="rev-quote">"I've tried a few mobile detailers and Rover Detail is in a different league. The attention to detail on the exterior was insane — every inch. Already on a bi-weekly plan now."</blockquote><div class="rev-author"><div class="rev-avatar">TL</div><div><div class="rev-name">Tyler L.</div><div class="rev-loc">Roswell, GA</div></div></div></div>
+    <div class="rev-card"><div class="rev-top"><div class="rev-stars-row"><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm">★</span><span class="star-sm">★</span></div><div class="rev-source"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg><span>Google</span></div></div><blockquote class="rev-quote">"My leather seats look brand new. They got out stains I thought were permanent and the whole cabin smelled incredible when they were done."</blockquote><div class="rev-author"><div class="rev-avatar">AW</div><div><div class="rev-name">Ashley W.</div><div class="rev-loc">Milton, GA</div></div></div></div>
+  </div>
+  <div class="reviews-cta">
+    <a href="https://www.google.com/maps/search/Rover+Detail+North+Atlanta" target="_blank" class="btn-google"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>Leave Us a Review on Google</a>
+    <span class="reviews-sync">Reviews pulled from Google · Updated weekly</span>
   </div>
 </section>
 
@@ -626,18 +446,9 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:48px 5
       <div class="contact-info">
         <h3>Reach Us Directly</h3>
         <div class="contact-meta">
-          <a href="mailto:reflektautocare.atl@gmail.com" class="contact-meta-item">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            reflektautocare.atl@gmail.com
-          </a>
-          <a href="https://www.instagram.com/reflekt.autocare" target="_blank" class="contact-meta-item">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-            @reflekt.autocare
-          </a>
-          <div class="contact-meta-item">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Mon – Sun &nbsp;8:00 AM – 6:00 PM
-          </div>
+          <a href="mailto:reflektautocare.atl@gmail.com" class="contact-meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>reflektautocare.atl@gmail.com</a>
+          <a href="https://www.instagram.com/reflekt.autocare" target="_blank" class="contact-meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>@reflekt.autocare</a>
+          <div class="contact-meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Mon – Sun &nbsp;8:00 AM – 6:00 PM</div>
         </div>
       </div>
       <div>
@@ -648,18 +459,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:48px 5
           </div>
           <div class="fg"><label>Email Address</label><input type="email" id="c-email" placeholder="you@example.com"></div>
           <div class="fg"><label>Phone <span style="font-size:10px;color:rgba(201,168,76,0.5);text-transform:none;letter-spacing:0">(optional)</span></label><input type="tel" id="c-phone" placeholder="(404) 555-0100"></div>
-          <div class="fg">
-            <label>What Can We Help With?</label>
-            <select id="c-topic">
-              <option value="" disabled selected>Select a topic...</option>
-              <option>Interior Detail</option>
-              <option>Exterior Detail</option>
-              <option>Full Detail</option>
-              <option>Add-On Service</option>
-              <option>Pricing Question</option>
-              <option>Other</option>
-            </select>
-          </div>
+          <div class="fg"><label>What Can We Help With?</label><select id="c-topic"><option value="" disabled selected>Select a topic...</option><option>Interior Detail</option><option>Exterior Detail</option><option>Full Detail</option><option>Add-On Service</option><option>Pricing Question</option><option>Other</option></select></div>
           <div class="fg"><label>Message</label><textarea id="c-message" rows="4" placeholder="Tell us about your vehicle and what you're looking for..."></textarea></div>
           <button class="btn-submit" onclick="submitContact()">Send Message</button>
           <p class="form-note">We'll never share your information. No spam, ever.</p>
@@ -674,20 +474,18 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:48px 5
   </div>
 </div>
 
-<!-- CTA BAND -->
 <div class="cta-band">
   <h2>Ready to see the difference?</h2>
   <a href="https://book.squareup.com/appointments/6t3dr4u3tg3109/location/LSMK9Z81Z1PDK/availability" target="_blank" class="btn-black">Book Your Detail</a>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-logo">ROVER <span>DETAIL</span></div>
   <div class="footer-links">
+    <a href="#service-area">Service Area</a>
     <a href="#services">Services</a>
     <a href="#addons">Add-Ons</a>
     <a href="#reviews">Reviews</a>
-    <a href="#service-area">Service Area</a>
     <a href="#how-it-works">How It Works</a>
     <a href="#contact">Contact</a>
   </div>
@@ -695,14 +493,6 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:48px 5
 </footer>
 
 <script>
-const PRICING={interior:{silver:['$150','$175','$200'],gold:['$200','$225','$250'],platinum:['$250','$275','$300']},exterior:{silver:['$175','$200','$225'],gold:['$200','$225','$250'],platinum:['$225','$250','$275']},full:{silver:['$250','$300','$350'],gold:['$350','$400','$450'],platinum:['$450','$500','$550']}};
-const TIER_INCLUDES={interior:{silver:['Full vacuum — seats, carpets, floor mats, crevices','Dashboard, console, and door panels wiped down','Vents and tight spaces cleaned','Interior glass cleaned streak-free','Air freshener applied'],gold:['Everything in Silver, plus:','Steam cleaning of carpets, mats, and upholstery','Stain treatment and extraction','Leather cleaned and conditioned (if applicable)','Plastic trim and door pockets detailed','Long-lasting premium air freshener'],platinum:['Everything in Gold, plus:','Full hot water extraction of carpets and seats','Deep stain removal and odor elimination','Plastic trim restoration with UV protectant','Full headliner wipe-down','Ceramic-infused interior protectant','Ozone odor treatment (if needed)']},exterior:{silver:['Safe pre-rinse and two-bucket hand wash','Wheel face and tire cleaned','Tire dressing applied','Exterior glass cleaned streak-free','Quick-detail spray for surface gloss'],gold:['Everything in Silver, plus:','Clay bar decontamination','Door jambs, gas cap, wheel arches cleaned','Wheel barrel and brake dust removal','CarPro Hydro2 sealant — lasting hydrophobic protection'],platinum:['Everything in Gold, plus:','Iron decontamination spray (fallout remover)','Full engine bay wipe-down','Paint surface prep and panel wipe','Premium ceramic sealant — 6–12 month protection','Trim and rubber seal dressing']},full:{silver:['Full vacuum — seats, carpets, floor mats, crevices','Dashboard, console, door panels wiped down','Interior glass streak-free + air freshener','Safe pre-rinse and two-bucket hand wash','Wheel face and tire cleaned + tire dressing','Exterior glass streak-free + quick-detail gloss'],gold:['Everything in Silver, plus:','Steam cleaning of carpets, mats, upholstery','Stain treatment + leather conditioning','Clay bar decontamination + door jambs','Wheel barrel and brake dust removal','CarPro Hydro2 sealant for lasting protection'],platinum:['Everything in Gold, plus:','Full hot water extraction of carpets and seats','Deep odor elimination + ozone treatment','Ceramic-infused interior protectant + UV trim','Iron decontamination + engine bay wipe-down','Premium ceramic sealant — 6–12 month exterior']}};
-const SIZE_LABEL=['sedan / coupe','SUV / crossover','truck / large SUV'];
-let activeSize=0;
-const activeTier={interior:'silver',exterior:'silver',full:'silver'};
-function setSize(i){activeSize=i;document.querySelectorAll('.vehicle-btn').forEach((b,idx)=>b.classList.toggle('active',idx===i));['interior','exterior','full'].forEach(s=>refreshCard(s));}
-function setTier(svc,tier){activeTier[svc]=tier;const card=document.querySelector('.svc-card[data-service="'+svc+'"]');if(!card)return;card.querySelectorAll('.tier-btn').forEach(b=>b.classList.toggle('active',b.dataset.tier===tier));refreshCard(svc);}
-function refreshCard(svc){const card=document.querySelector('.svc-card[data-service="'+svc+'"]');if(!card)return;const tier=activeTier[svc];const priceEl=card.querySelector('[data-price]');const noteEl=card.querySelector('[data-note]');const listEl=card.querySelector('[data-includes]');if(priceEl)priceEl.textContent=PRICING[svc][tier][activeSize];if(noteEl){const tl=tier.charAt(0).toUpperCase()+tier.slice(1);const ex=svc==='full'?' · saves vs. separate bookings':'';noteEl.textContent=tl+' · '+SIZE_LABEL[activeSize]+ex;}if(listEl)listEl.innerHTML=TIER_INCLUDES[svc][tier].map(x=>'<li>'+x+'</li>').join('');}
 function openMenu(){document.getElementById('mob-overlay').classList.add('open');document.body.style.overflow='hidden';}
 function closeMenu(){document.getElementById('mob-overlay').classList.remove('open');document.body.style.overflow='';}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu();});
