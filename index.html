@@ -174,9 +174,12 @@ a{text-decoration:none;}
 .contact-meta-item{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--ink-3);text-decoration:none;transition:color 0.2s;}
 .contact-meta-item svg{color:var(--gold);flex-shrink:0;}
 .contact-meta-item:hover{color:var(--gold);}
+.inquiry-form{background:#fff;border:1px solid var(--divider);border-radius:12px;padding:40px 36px;}
+.form-title{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:1px;color:var(--ink);margin-bottom:4px;}
+.form-sub{font-size:13px;color:var(--ink-3);font-weight:300;margin-bottom:28px;}
 .fg{margin-bottom:14px;}
 .fg label{display:block;font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold);margin-bottom:6px;font-weight:500;}
-.fg input,.fg select,.fg textarea{width:100%;padding:11px 14px;background:#fff;border:1px solid var(--divider);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--ink);outline:none;transition:border-color 0.2s;resize:none;}
+.fg input,.fg select,.fg textarea{width:100%;padding:11px 14px;background:var(--surface);border:1px solid var(--divider);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--ink);outline:none;transition:border-color 0.2s;resize:none;}
 .fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--gold);}
 .fg-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
 .btn-submit{width:100%;background:var(--black);color:var(--white);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;letter-spacing:0.8px;text-transform:uppercase;padding:16px;border:none;border-radius:4px;cursor:pointer;transition:background 0.2s;margin-top:4px;}
@@ -452,6 +455,9 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:48px 5
         </div>
       </div>
       <div>
+        <div class="inquiry-form">
+        <div class="form-title">Send Us a Message</div>
+        <div class="form-sub">We get back to you within one business day — no commitment required.</div>
         <div id="contact-fields">
           <div class="fg-row">
             <div class="fg"><label>First Name</label><input type="text" id="c-first" placeholder="First name"></div>
@@ -469,6 +475,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:48px 5
           <h3>Message Sent</h3>
           <p>Thanks for reaching out. We'll get back to you within one business day.</p>
         </div>
+        </div><!-- /.inquiry-form -->
       </div>
     </div>
   </div>
