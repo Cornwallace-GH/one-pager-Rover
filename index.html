@@ -104,6 +104,12 @@ a{text-decoration:none;}
 .svc-card.popular .svc-title{color:var(--white);}
 .svc-desc{font-size:14px;line-height:1.6;color:var(--ink-3);margin-bottom:28px;flex:1;}
 .svc-card.popular .svc-desc{color:var(--muted);}
+.includes-label{font-size:11px;letter-spacing:1.8px;text-transform:uppercase;color:var(--ink);font-weight:600;padding-bottom:10px;border-bottom:1px solid var(--divider);margin-bottom:14px;}
+.svc-card.popular .includes-label{color:var(--gold);border-color:rgba(201,168,76,0.2);}
+.includes-list{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:28px;flex:1;}
+.includes-list li{position:relative;padding-left:22px;font-size:13.5px;line-height:1.45;color:var(--ink);}
+.includes-list li::before{content:"✓";position:absolute;left:0;color:var(--gold);font-weight:700;}
+.svc-card.popular .includes-list li{color:rgba(245,244,240,0.75);}
 .price-from{font-family:'Bebas Neue',sans-serif;font-size:44px;letter-spacing:1px;color:var(--ink);line-height:1;margin-bottom:28px;}
 .svc-card.popular .price-from{color:var(--gold);}
 .svc-cta{display:block;width:100%;text-align:center;padding:14px;border-radius:6px;font-size:13px;font-weight:500;letter-spacing:0.8px;text-transform:uppercase;transition:all 0.2s;background:var(--black);color:var(--white);border:1px solid var(--black);}
@@ -344,6 +350,14 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:48px 5
     <div class="svc-card">
       <h3 class="svc-title">Interior Detail</h3>
       <p class="svc-desc">A deep clean of every cabin surface — vacuumed carpets, wiped panels, steam-cleaned upholstery, and odor elimination.</p>
+      <div class="includes-label">What's Included</div>
+      <ul class="includes-list">
+        <li>Complete vacuum and blowout</li>
+        <li>Clean door jambs</li>
+        <li>Surface sanitizing and protection</li>
+        <li>Air freshener applied</li>
+        <li>Streak-free windows</li>
+      </ul>
       <div class="price-from">From $150</div>
       <a href="https://book.squareup.com/appointments/6t3dr4u3tg3109/location/LSMK9Z81Z1PDK/availability" target="_blank" class="svc-cta">Book This Service</a>
     </div>
@@ -352,6 +366,12 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:48px 5
       <span class="card-badge">Most Popular</span>
       <h3 class="svc-title">Full Detail</h3>
       <p class="svc-desc">The complete reset — every surface inside, every panel outside. Best value vs. booking interior and exterior separately.</p>
+      <div class="includes-label">What's Included</div>
+      <ul class="includes-list">
+        <li>All interior services</li>
+        <li>All exterior services</li>
+        <li>3 Month paint sealant</li>
+      </ul>
       <div class="price-from">From $250</div>
       <a href="https://book.squareup.com/appointments/6t3dr4u3tg3109/location/LSMK9Z81Z1PDK/availability" target="_blank" class="svc-cta">Book This Service</a>
     </div>
@@ -359,6 +379,14 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:48px 5
     <div class="svc-card">
       <h3 class="svc-title">Exterior Detail</h3>
       <p class="svc-desc">A proper hand wash with attention a machine can't match — safe technique, clay bar decontamination, and a lasting hydrophobic finish.</p>
+      <div class="includes-label">What's Included</div>
+      <ul class="includes-list">
+        <li>Pre-wash</li>
+        <li>Tire dressing applied</li>
+        <li>Streak-free windows</li>
+        <li>Clean tires and rims</li>
+        <li>1 Month paint sealant</li>
+      </ul>
       <div class="price-from">From $175</div>
       <a href="https://book.squareup.com/appointments/6t3dr4u3tg3109/location/LSMK9Z81Z1PDK/availability" target="_blank" class="svc-cta">Book This Service</a>
     </div>
