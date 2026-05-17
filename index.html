@@ -47,9 +47,9 @@ a{text-decoration:none;}
 .eyebrow-text{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:500;}
 
 /* HERO */
-@keyframes kenBurns{0%{transform:scale(0.88) translate(0,0);}60%{transform:scale(1.03) translate(5%,2%);}100%{transform:scale(0.88) translate(0,0);}}
+@keyframes kenBurns{0%{transform:scale(0.72) translate(0,0);}60%{transform:scale(0.85) translate(4%,2%);}100%{transform:scale(0.72) translate(0,0);}}
 #hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--black);text-align:center;padding:120px 5% 80px;}
-.hero-bg{position:absolute;inset:-15%;background-size:cover;background-position:center 35%;background-repeat:no-repeat;animation:kenBurns 22s ease-in-out infinite;z-index:0;}
+.hero-bg{position:absolute;inset:-25%;background-size:cover;background-position:center 35%;background-repeat:no-repeat;animation:kenBurns 22s ease-in-out infinite;z-index:0;}
 #hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,10,10,0.72) 0%,rgba(10,10,10,0.52) 60%,rgba(10,10,10,0.78) 100%);z-index:1;}
 .hero-content{position:relative;z-index:2;max-width:860px;}
 #hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,9vw,96px);letter-spacing:2px;color:var(--white);line-height:1;margin-bottom:24px;}
