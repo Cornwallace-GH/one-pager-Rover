@@ -8,6 +8,8 @@ title: "Rover Detail | Mobile Auto Detailing — North Atlanta, GA"
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rover Detail | Mobile Auto Detailing — North Atlanta, GA</title>
+<link rel="icon" type="image/png" href="./favicon.png">
+<link rel="apple-touch-icon" href="./apple-touch-icon.png">
 <meta name="description" content="Professional mobile auto detailing in North Atlanta, GA. Interior, exterior, full detail — we come to you.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -206,7 +208,11 @@ a{text-decoration:none;}
 
 
 /* FOOTER */
-footer{background:var(--black);border-top:1px solid var(--border);padding:48px 5%;display:flex;flex-direction:column;gap:16px;}
+footer{background:var(--black);border-top:1px solid var(--border);padding:48px 5%;display:grid;grid-template-columns:1fr auto;align-items:center;gap:24px;}
+.footer-left{display:flex;flex-direction:column;gap:14px;}
+.footer-brand-img{width:100px;height:100px;object-fit:contain;opacity:0.85;transition:opacity 0.2s;}
+.footer-brand-img:hover{opacity:1;}
+@media(max-width:600px){footer{grid-template-columns:1fr;}.footer-brand-img{width:72px;height:72px;}}
 .footer-logo{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:3px;color:var(--white);}
 .footer-logo span{color:var(--gold);}
 .footer-links{display:flex;gap:24px;flex-wrap:wrap;}
@@ -505,16 +511,19 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:48px 5
 </div>
 
 <footer>
-  <div class="footer-logo">ROVER <span>DETAIL</span></div>
-  <div class="footer-links">
-    <a href="#service-area">Service Area</a>
-    <a href="#services">Services</a>
-    <a href="#addons">Add-Ons</a>
-    <a href="#reviews">Reviews</a>
-    <a href="#how-it-works">How It Works</a>
-    <a href="#contact">Contact</a>
+  <div class="footer-left">
+    <div class="footer-logo">ROVER <span>DETAIL</span></div>
+    <div class="footer-links">
+      <a href="#service-area">Service Area</a>
+      <a href="#services">Services</a>
+      <a href="#addons">Add-Ons</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <p class="footer-copy">&copy; 2025 Rover Detail. North Atlanta, GA. All rights reserved.</p>
   </div>
-  <p class="footer-copy">&copy; 2025 Rover Detail. North Atlanta, GA. All rights reserved.</p>
+  <img src="./favicon-512.png" alt="Rover Detail" class="footer-brand-img">
 </footer>
 
 <script>
