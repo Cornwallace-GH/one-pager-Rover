@@ -1,0 +1,222 @@
+---
+layout: null
+title: "Commercial Accounts — Rover Detail | Fleet Detailing North Atlanta"
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Commercial Accounts — Rover Detail | Fleet Detailing North Atlanta</title>
+<meta name="description" content="Fleet and commercial auto detailing in North Atlanta. Custom pricing, priority scheduling, and account management for businesses and dealerships.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--black:#0A0A0A;--gold:#C9A84C;--gold-light:#D4B96A;--white:#F5F4F0;--muted:rgba(245,244,240,0.55);--border:rgba(201,168,76,0.15);--divider:#E8E6E0;--surface:#FAFAF8;--ink:#1a1a1a;--ink-3:#6a6a6a;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:#fff;color:var(--ink);line-height:1.6;}
+a{text-decoration:none;}
+#nav{position:sticky;top:0;z-index:200;background:var(--black);border-bottom:1px solid var(--border);padding:0 5%;height:68px;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:3px;color:var(--white);}
+.nav-logo span{color:var(--gold);}
+.nav-back{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:0.8px;transition:color 0.2s;}
+.nav-back:hover{color:var(--gold);}
+.nav-back:hover svg{transform:translateX(-3px);}
+.nav-back svg{transition:transform 0.2s;}
+.nav-book{background:var(--gold);color:var(--black);font-size:12px;font-weight:600;letter-spacing:0.8px;text-transform:uppercase;padding:10px 22px;border-radius:4px;transition:background 0.2s;}
+.nav-book:hover{background:var(--gold-light);}
+.eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.eyebrow-line{width:32px;height:1px;background:var(--gold);}
+.eyebrow-text{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:500;}
+.page-header{background:var(--black);padding:64px 5% 56px;}
+.page-header h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,7vw,80px);letter-spacing:2px;color:var(--white);line-height:1;margin-bottom:16px;}
+.page-header h1 em{color:var(--gold);font-style:normal;}
+.page-header p{font-size:15px;color:var(--muted);font-weight:300;line-height:1.8;max-width:560px;}
+.section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,5vw,52px);letter-spacing:1.5px;line-height:1.05;margin-bottom:12px;}
+.section-sub{font-size:15px;color:var(--ink-3);max-width:520px;line-height:1.8;font-weight:300;margin-bottom:48px;}
+.hero-wrap{background:var(--surface);padding:64px 5%;}
+.hero-grid{display:grid;grid-template-columns:1fr 480px;gap:64px;max-width:1280px;margin:0 auto;align-items:start;}
+.bullet-list{display:flex;flex-direction:column;gap:0;margin-top:32px;}
+.bullet-item{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--divider);align-items:flex-start;}
+.bullet-item:last-child{border-bottom:none;}
+.bullet-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:6px;}
+.bullet-title{font-size:13px;font-weight:600;color:var(--ink);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:3px;}
+.bullet-desc{font-size:13px;color:var(--ink-3);font-weight:300;line-height:1.6;}
+.inquiry-form{background:#fff;border:1px solid var(--divider);border-radius:12px;padding:40px 36px;}
+.form-title{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:1px;color:var(--ink);margin-bottom:4px;}
+.form-sub{font-size:13px;color:var(--ink-3);font-weight:300;margin-bottom:28px;}
+.fg{margin-bottom:14px;}
+.fg label{display:block;font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold);font-weight:500;margin-bottom:6px;}
+.fg input,.fg select,.fg textarea{width:100%;padding:11px 14px;background:var(--surface);border:1px solid var(--divider);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--ink);outline:none;transition:border-color 0.2s;resize:none;}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--gold);}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.btn-submit{width:100%;background:var(--black);color:var(--white);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;letter-spacing:0.8px;text-transform:uppercase;padding:16px;border:none;border-radius:4px;cursor:pointer;transition:background 0.2s;}
+.btn-submit:hover{background:var(--gold);color:var(--black);}
+.form-note{font-size:11px;color:var(--ink-3);margin-top:10px;text-align:center;font-weight:300;}
+.form-success{display:none;text-align:center;padding:48px 24px;}
+.form-success-icon{font-size:48px;color:var(--gold);margin-bottom:16px;}
+.form-success h3{font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:1px;margin-bottom:8px;}
+.form-success p{font-size:14px;color:var(--ink-3);line-height:1.7;}
+.serve-section{padding:80px 5%;background:#fff;}
+.serve-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1280px;margin:0 auto;}
+.serve-item{background:var(--surface);border:1px solid var(--divider);border-radius:12px;padding:28px 24px;transition:border-color 0.2s;}
+.serve-item:hover{border-color:var(--gold);}
+.serve-icon{width:40px;height:40px;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.25);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
+.serve-title{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:1px;color:var(--ink);margin-bottom:8px;line-height:1;}
+.serve-desc{font-size:13px;color:var(--ink-3);line-height:1.6;font-weight:300;}
+.benefits-section{padding:80px 5%;background:var(--surface);}
+.benefits-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:1280px;margin:48px auto 0;}
+.benefit{display:flex;gap:20px;align-items:flex-start;background:#fff;border:1px solid var(--divider);border-radius:12px;padding:28px 24px;}
+.benefit-num{font-family:'Bebas Neue',sans-serif;font-size:40px;color:rgba(201,168,76,0.3);line-height:1;flex-shrink:0;width:40px;}
+.benefit-title{font-size:14px;font-weight:600;color:var(--ink);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:6px;}
+.benefit-desc{font-size:13px;color:var(--ink-3);line-height:1.6;font-weight:300;}
+.cta-band{background:var(--gold);padding:64px 5%;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;}
+.cta-band h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,4vw,44px);letter-spacing:1.5px;color:var(--black);}
+.btn-black{background:var(--black);color:var(--white);font-size:13px;font-weight:500;letter-spacing:0.8px;text-transform:uppercase;padding:15px 32px;border-radius:4px;white-space:nowrap;transition:background 0.2s;display:inline-block;}
+.btn-black:hover{background:#222;}
+footer{background:var(--black);border-top:1px solid var(--border);padding:40px 5%;display:flex;flex-direction:column;gap:14px;}
+.footer-logo{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:3px;color:var(--white);}
+.footer-logo span{color:var(--gold);}
+.footer-links{display:flex;gap:24px;flex-wrap:wrap;}
+.footer-links a{font-size:12px;text-transform:uppercase;letter-spacing:0.5px;color:rgba(245,244,240,0.35);transition:color 0.2s;}
+.footer-links a:hover{color:var(--gold);}
+.footer-copy{font-size:11px;color:rgba(245,244,240,0.2);letter-spacing:0.5px;}
+@media(max-width:1000px){.hero-grid{grid-template-columns:1fr;}.serve-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:640px){.serve-grid{grid-template-columns:1fr;}.benefits-grid{grid-template-columns:1fr;}.fg-row{grid-template-columns:1fr;}.cta-band{flex-direction:column;text-align:center;}.inquiry-form{padding:28px 20px;}}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="./index.html" class="nav-logo">ROVER <span>DETAIL</span></a>
+  <a href="./index.html" class="nav-back">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Back
+  </a>
+  <a href="https://book.roverdetail.com/book" target="_blank" class="nav-book">Book Now</a>
+</nav>
+
+<div class="page-header">
+  <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">Commercial Accounts</span></div>
+  <h1>Detailing Built<br>for <em>Business.</em></h1>
+  <p>Whether you manage a fleet, run a dealership, or need recurring service across multiple vehicles — Rover Detail builds custom commercial accounts tailored to your operation, schedule, and budget.</p>
+</div>
+
+<div class="hero-wrap">
+  <div class="hero-grid">
+    <div>
+      <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">What You Get</span></div>
+      <h2 class="section-title">Built Around<br>Your Business.</h2>
+      <p style="font-size:15px;color:var(--ink-3);font-weight:300;line-height:1.8;margin-bottom:8px;">Commercial accounts come with dedicated support and pricing built around your operation — not a bigger version of our standard service.</p>
+      <div class="bullet-list">
+        <div class="bullet-item"><div class="bullet-dot"></div><div><div class="bullet-title">Custom Volume Pricing</div><p class="bullet-desc">The more vehicles, the more you save. Built around your fleet size and service frequency.</p></div></div>
+        <div class="bullet-item"><div class="bullet-dot"></div><div><div class="bullet-title">Priority Scheduling</div><p class="bullet-desc">Dedicated windows — your fleet is never competing with the retail queue for time slots.</p></div></div>
+        <div class="bullet-item"><div class="bullet-dot"></div><div><div class="bullet-title">On-Site Service</div><p class="bullet-desc">We come to your lot, dealership, or office with all equipment. No vehicle transport needed.</p></div></div>
+        <div class="bullet-item"><div class="bullet-dot"></div><div><div class="bullet-title">Flexible Invoicing</div><p class="bullet-desc">Monthly consolidated billing. We work with your cycle — not the other way around.</p></div></div>
+      </div>
+    </div>
+    <div class="inquiry-form" id="inquiry">
+      <div class="form-title">Request a Commercial Account</div>
+      <div class="form-sub">We'll follow up within one business day — no commitment required.</div>
+      <div id="inquiry-fields">
+        <div class="fg-row">
+          <div class="fg"><label>First Name</label><input type="text" id="c-first" placeholder="John"></div>
+          <div class="fg"><label>Last Name</label><input type="text" id="c-last" placeholder="Smith"></div>
+        </div>
+        <div class="fg"><label>Business Name</label><input type="text" id="c-biz" placeholder="Smith Auto Group"></div>
+        <div class="fg"><label>Email Address</label><input type="email" id="c-email" placeholder="john@smithautogroup.com"></div>
+        <div class="fg"><label>Phone Number</label><input type="tel" id="c-phone" placeholder="(404) 555-0100"></div>
+        <div class="fg">
+          <label>Business Type</label>
+          <select id="c-type"><option value="" disabled selected>Select your business type</option><option>Dealership</option><option>Fleet / Corporate</option><option>Car Rental</option><option>Transportation / Rideshare</option><option>Property Management</option><option>Other</option></select>
+        </div>
+        <div class="fg">
+          <label>Number of Vehicles</label>
+          <select id="c-size"><option value="" disabled selected>Approximate fleet size</option><option>2–5 vehicles</option><option>6–15 vehicles</option><option>16–30 vehicles</option><option>30+ vehicles</option></select>
+        </div>
+        <div class="fg"><label>Tell Us About Your Needs</label><textarea id="c-notes" rows="3" placeholder="Frequency, services needed, location, any special requirements..."></textarea></div>
+        <button class="btn-submit" onclick="submitInquiry()">Submit Inquiry</button>
+        <p class="form-note">We respond within one business day — no commitment required.</p>
+      </div>
+      <div class="form-success" id="form-success">
+        <div class="form-success-icon">✓</div>
+        <h3>Inquiry Received</h3>
+        <p>We'll be in touch within one business day to discuss your account setup.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="serve-section">
+  <div style="max-width:1280px;margin:0 auto">
+    <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">Who We Work With</span></div>
+    <h2 class="section-title">Built for Any<br>Business with Wheels.</h2>
+    <div class="serve-grid">
+      <div class="serve-item"><div class="serve-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg></div><div class="serve-title">Dealerships</div><p class="serve-desc">Keep your lot inventory in showroom condition at all times. We schedule around your operation and work with any volume of vehicles.</p></div>
+      <div class="serve-item"><div class="serve-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><div class="serve-title">Fleets &amp; Corporations</div><p class="serve-desc">Company vehicles that represent your brand deserve consistent care. We handle recurring maintenance so you never have to think about it.</p></div>
+      <div class="serve-item"><div class="serve-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div class="serve-title">Rental Companies</div><p class="serve-desc">Keep your rental fleet clean and guest-ready between every booking. We offer turnaround scheduling built around your rental calendar.</p></div>
+      <div class="serve-item"><div class="serve-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><div class="serve-title">Property Management</div><p class="serve-desc">Offer vehicle detailing as a premium amenity for residents. We set up recurring on-site service that adds real value to your property.</p></div>
+      <div class="serve-item"><div class="serve-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div class="serve-title">Transportation &amp; Rideshare</div><p class="serve-desc">Clean vehicles earn better ratings. We offer fast-turnaround detailing scheduled around your drivers' availability.</p></div>
+      <div class="serve-item"><div class="serve-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="serve-title">Any Business with Vehicles</div><p class="serve-desc">If your business owns or manages vehicles, we can build a plan around it. Reach out and we'll put something together that fits.</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="benefits-section">
+  <div style="max-width:1280px;margin:0 auto">
+    <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">Why Rover Detail</span></div>
+    <h2 class="section-title">What You Get<br>with a Commercial Account</h2>
+    <p class="section-sub">Commercial accounts come with dedicated support and pricing built around your business — not a bigger version of our standard service.</p>
+    <div class="benefits-grid">
+      <div class="benefit"><div class="benefit-num">01</div><div><div class="benefit-title">Custom Volume Pricing</div><p class="benefit-desc">The more vehicles, the more you save. Pricing built around your fleet size and frequency.</p></div></div>
+      <div class="benefit"><div class="benefit-num">02</div><div><div class="benefit-title">Priority Scheduling</div><p class="benefit-desc">Dedicated scheduling windows — never competing with the retail queue for time slots.</p></div></div>
+      <div class="benefit"><div class="benefit-num">03</div><div><div class="benefit-title">Dedicated Account Manager</div><p class="benefit-desc">One point of contact for scheduling, invoicing, and special requests. No call center.</p></div></div>
+      <div class="benefit"><div class="benefit-num">04</div><div><div class="benefit-title">Flexible Invoicing</div><p class="benefit-desc">Monthly consolidated invoicing available. We work with your billing cycle.</p></div></div>
+      <div class="benefit"><div class="benefit-num">05</div><div><div class="benefit-title">On-Site Service</div><p class="benefit-desc">We come to your lot or office with all equipment. No transportation, no interruptions.</p></div></div>
+      <div class="benefit"><div class="benefit-num">06</div><div><div class="benefit-title">Service Records</div><p class="benefit-desc">Detailed logs for every vehicle — useful for fleet documentation and resale value.</p></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="cta-band">
+  <h2>Let's build a plan around your business.</h2>
+  <a href="#inquiry" class="btn-black">Request a Commercial Account</a>
+</div>
+
+<footer>
+  <div class="footer-logo">ROVER <span>DETAIL</span></div>
+  <div class="footer-links">
+    <a href="./index.html">Home</a>
+    <a href="./index.html#services">Services</a>
+    <a href="./ceramic.html">Ceramic Coating</a>
+    <a href="./index.html#contact">Contact</a>
+  </div>
+  <p class="footer-copy">&copy; 2025 Rover Detail. North Atlanta, GA. All rights reserved.</p>
+</footer>
+
+<script>
+function submitInquiry(){
+  const first=document.getElementById('c-first').value.trim();
+  const email=document.getElementById('c-email').value.trim();
+  if(!first||!email){alert('Please fill in your name and email.');return;}
+  const biz=document.getElementById('c-biz').value.trim();
+  const last=document.getElementById('c-last').value.trim();
+  const phone=document.getElementById('c-phone').value.trim();
+  const type=document.getElementById('c-type').value;
+  const size=document.getElementById('c-size').value;
+  const notes=document.getElementById('c-notes').value.trim();
+  let body='Commercial Account Inquiry\n\nName: '+first+' '+last+'\nEmail: '+email;
+  if(phone)body+='\nPhone: '+phone;
+  if(biz)body+='\nBusiness: '+biz;
+  if(type)body+='\nType: '+type;
+  if(size)body+='\nFleet Size: '+size;
+  if(notes)body+='\n\nNotes:\n'+notes;
+  window.location.href='mailto:sales@roverdetail.com?subject='+encodeURIComponent('Commercial Inquiry — '+biz)+'&body='+encodeURIComponent(body);
+  document.getElementById('inquiry-fields').style.display='none';
+  document.getElementById('form-success').style.display='block';
+}
+</script>
+</body>
+</html>
