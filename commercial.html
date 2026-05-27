@@ -201,21 +201,28 @@ function submitInquiry(){
   const first=document.getElementById('c-first').value.trim();
   const email=document.getElementById('c-email').value.trim();
   if(!first||!email){alert('Please fill in your name and email.');return;}
-  const biz=document.getElementById('c-biz').value.trim();
-  const last=document.getElementById('c-last').value.trim();
-  const phone=document.getElementById('c-phone').value.trim();
-  const type=document.getElementById('c-type').value;
-  const size=document.getElementById('c-size').value;
-  const notes=document.getElementById('c-notes').value.trim();
-  let body='Commercial Account Inquiry\n\nName: '+first+' '+last+'\nEmail: '+email;
-  if(phone)body+='\nPhone: '+phone;
-  if(biz)body+='\nBusiness: '+biz;
-  if(type)body+='\nType: '+type;
-  if(size)body+='\nFleet Size: '+size;
-  if(notes)body+='\n\nNotes:\n'+notes;
-  window.location.href='mailto:sales@roverdetail.com?subject='+encodeURIComponent('Commercial Inquiry — '+biz)+'&body='+encodeURIComponent(body);
-  document.getElementById('inquiry-fields').style.display='none';
-  document.getElementById('form-success').style.display='block';
+  const btn=document.querySelector('#inquiry-fields .btn-submit');
+  btn.disabled=true; btn.textContent='Sending...';
+  fetch('https://formspree.io/f/mkoekojk',{
+    method:'POST',
+    headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body:JSON.stringify({
+      name:first+' '+document.getElementById('c-last').value.trim(),
+      email:email,
+      phone:document.getElementById('c-phone').value.trim(),
+      business:document.getElementById('c-biz').value.trim(),
+      business_type:document.getElementById('c-type').value,
+      fleet_size:document.getElementById('c-size').value,
+      notes:document.getElementById('c-notes').value.trim(),
+      _subject:'Commercial Account Inquiry'
+    })
+  })
+  .then(r=>r.json())
+  .then(d=>{
+    if(d.ok){document.getElementById('inquiry-fields').style.display='none';document.getElementById('form-success').style.display='block';}
+    else{alert('Something went wrong. Please try again.');btn.disabled=false;btn.textContent='Submit Inquiry';}
+  })
+  .catch(()=>{alert('Something went wrong. Please try again.');btn.disabled=false;btn.textContent='Submit Inquiry';});
 }
 </script>
 </body>
