@@ -232,23 +232,28 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:40px 5
 function submitCeramic(){
   const first=document.getElementById('cc-first').value.trim();
   const email=document.getElementById('cc-email').value.trim();
-  const msg=document.getElementById('cc-message').value.trim();
   if(!first||!email){alert('Please fill in your name and email.');return;}
-  const last=document.getElementById('cc-last').value.trim();
-  const phone=document.getElementById('cc-phone').value.trim();
-  const year=document.getElementById('cc-year').value.trim();
-  const make=document.getElementById('cc-make').value.trim();
-  const model=document.getElementById('cc-model').value.trim();
-  const condition=document.getElementById('cc-condition').value;
-  let body='Ceramic Coating Inquiry\n\n';
-  body+='Name: '+first+' '+last+'\nEmail: '+email;
-  if(phone) body+='\nPhone: '+phone;
-  body+='\n\nVehicle: '+year+' '+make+' '+model;
-  if(condition) body+='\nPaint Condition: '+condition;
-  if(msg) body+='\n\nNotes:\n'+msg;
-  window.location.href='mailto:reflektautocare.atl@gmail.com?subject='+encodeURIComponent('Ceramic Coating Quote — '+year+' '+make+' '+model)+'&body='+encodeURIComponent(body);
-  document.getElementById('ceramic-fields').style.display='none';
-  document.getElementById('ceramic-success').style.display='block';
+  const btn=document.querySelector('#ceramic-fields .btn-submit');
+  btn.disabled=true; btn.textContent='Sending...';
+  fetch('https://book.roverdetail.com/inquiries',{
+    method:'POST',
+    headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body:JSON.stringify({
+      name:first+' '+document.getElementById('cc-last').value.trim(),
+      email:email,
+      phone:document.getElementById('cc-phone').value.trim(),
+      vehicle:document.getElementById('cc-year').value.trim()+' '+document.getElementById('cc-make').value.trim()+' '+document.getElementById('cc-model').value.trim(),
+      paint_condition:document.getElementById('cc-condition').value,
+      notes:document.getElementById('cc-message').value.trim(),
+      _subject:'Ceramic Coating Quote Inquiry'
+    })
+  })
+  .then(r=>r.json())
+  .then(d=>{
+    if(d.ok){document.getElementById('ceramic-fields').style.display='none';document.getElementById('ceramic-success').style.display='block';}
+    else{alert('Something went wrong. Please try again.');btn.disabled=false;btn.textContent='Request My Quote';}
+  })
+  .catch(()=>{alert('Something went wrong. Please try again.');btn.disabled=false;btn.textContent='Request My Quote';});
 }
 </script>
 </body>

@@ -311,6 +311,16 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:48px 5
   </div>
 </section>
 
+<!-- PROMO BANNER -->
+<div style="background:var(--gold);padding:18px 5% 14px;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;">
+  <div style="display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;">
+    <span style="font-family:'Bebas Neue',sans-serif;font-size:clamp(24px,4vw,36px);letter-spacing:3px;color:var(--black);">Special Offer</span>
+    <span style="width:1px;height:28px;background:rgba(10,10,10,0.25);display:inline-block;"></span>
+    <span style="font-family:'Bebas Neue',sans-serif;font-size:clamp(26px,4.5vw,40px);letter-spacing:2px;color:var(--black);">20% Off For New Customers!*</span>
+  </div>
+  <p style="font-size:11px;color:rgba(10,10,10,0.55);font-weight:400;letter-spacing:0.3px;">*Discount applied to your total at the time of service. Valid for first-time customers only.</p>
+</div>
+
 <!-- TASK 1 — SERVICE AREA moved above services -->
 <section id="service-area" class="sec sec--dark">
   <div class="sa-inner">
@@ -543,7 +553,31 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:48px 5
 function openMenu(){document.getElementById('mob-overlay').classList.add('open');document.body.style.overflow='hidden';}
 function closeMenu(){document.getElementById('mob-overlay').classList.remove('open');document.body.style.overflow='';}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu();});
-function submitContact(){const first=document.getElementById('c-first').value.trim();const email=document.getElementById('c-email').value.trim();const msg=document.getElementById('c-message').value.trim();if(!first||!email||!msg){alert('Please fill in your name, email, and message.');return;}const last=document.getElementById('c-last').value.trim();const phone=document.getElementById('c-phone').value.trim();const topic=document.getElementById('c-topic').value;let body='Website Contact\n\nName: '+first+' '+last+'\nEmail: '+email+(phone?'\nPhone: '+phone:'')+(topic?'\nTopic: '+topic:'')+'\n\nMessage:\n'+msg;window.location.href='mailto:sales@roverdetail.com?subject='+encodeURIComponent('Inquiry — '+(topic||'General'))+'&body='+encodeURIComponent(body);document.getElementById('contact-fields').style.display='none';document.getElementById('contact-success').style.display='block';}
+function submitContact(){
+  const first=document.getElementById('c-first').value.trim();
+  const email=document.getElementById('c-email').value.trim();
+  const msg=document.getElementById('c-message').value.trim();
+  if(!first||!email||!msg){alert('Please fill in your name, email, and message.');return;}
+  const btn=document.querySelector('#contact-fields .btn-submit');
+  btn.disabled=true; btn.textContent='Sending...';
+  fetch('https://book.roverdetail.com/inquiries',{
+    method:'POST',
+    headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body:JSON.stringify({
+      name:first+' '+document.getElementById('c-last').value.trim(),
+      email:email,
+      phone:document.getElementById('c-phone').value.trim(),
+      topic:document.getElementById('c-topic').value,
+      message:msg
+    })
+  })
+  .then(r=>r.json())
+  .then(d=>{
+    if(d.ok){document.getElementById('contact-fields').style.display='none';document.getElementById('contact-success').style.display='block';}
+    else{alert('Something went wrong. Please try again.');btn.disabled=false;btn.textContent='Send Message';}
+  })
+  .catch(()=>{alert('Something went wrong. Please try again.');btn.disabled=false;btn.textContent='Send Message';});
+}
 </script>
 </body>
 </html>

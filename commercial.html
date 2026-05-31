@@ -203,7 +203,7 @@ function submitInquiry(){
   if(!first||!email){alert('Please fill in your name and email.');return;}
   const btn=document.querySelector('#inquiry-fields .btn-submit');
   btn.disabled=true; btn.textContent='Sending...';
-  fetch('https://formspree.io/f/mkoekojk',{
+  fetch('https://book.roverdetail.com/inquiries',{
     method:'POST',
     headers:{'Content-Type':'application/json','Accept':'application/json'},
     body:JSON.stringify({
